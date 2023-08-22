@@ -97,28 +97,32 @@ class LoginViewController: UIViewController {
         let email: String = emailText.text ?? ""
         let pass: String = passwordText.text ?? ""
         
+        var emailValid = false
+        var passwordValid = false
+        
         if email.isEmpty{
             emailError(textError: "Email can't empty")
-            return
         }else if email.count >= 40 {
             emailError(textError: "Email phải ít hơn 40 ký tự")
             clearEmailView.isHidden = false
-            return
         }else{
+            emailValid = true
             setupEmailView()
         }
 
         if pass.isEmpty{
             passError(textError: "Password can't empty")
-            return
         }else if pass.count < 6 || pass.count > 40 {
             passError(textError: "Password phải từ 6 - 40 ký tự")
-            return
         }else{
+            passwordValid = true
             setupPasswordView()
         }
         
-        callAPI()
+        if emailValid == true && passwordValid == true {
+            callAPI()
+        }
+        
     }
     
     func signUpLabelSetup(){

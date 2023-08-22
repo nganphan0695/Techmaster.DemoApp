@@ -13,7 +13,7 @@ target 'App.Demo.Techmaster' do
   pod 'ObjectMapper', '~> 3.5'
 
 end
-end
+
 post_install do |pi|
   pi.pods_project.targets.each do |t|
     t.build_configurations.each do |config|
