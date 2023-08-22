@@ -276,8 +276,7 @@ class RegisterViewController: UIViewController {
         let parameter:[String: String] = [
             "name": nameText.text ?? "",
             "email": emailText.text ?? "",
-            "password": passwordText.text ?? ""
-        ]
+            "password": passwordText.text ?? ""]
         AF.request(domain,
                    method: .post,
                    parameters: parameter,
