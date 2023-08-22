@@ -2,7 +2,6 @@
 # platform :ios, '9.0'
 
 target 'App.Demo.Techmaster' do
-  platform :ios, '10.0'
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 
@@ -14,7 +13,7 @@ target 'App.Demo.Techmaster' do
   pod 'ObjectMapper', '~> 3.5'
 
 end
-end
+
 post_install do |pi|
   pi.pods_project.targets.each do |t|
     t.build_configurations.each do |config|

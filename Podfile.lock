@@ -1,3 +1,32 @@
-PODFILE CHECKSUM: 6affa8212c44b8904059bd84412b7aeb6e84d97a
+PODS:
+  - ActiveLabel (1.1.0)
+  - Alamofire (5.7.1)
+  - MBProgressHUD (1.2.0)
+  - ObjectMapper (3.5.3)
+  - SwiftHEXColors (1.4.1)
+
+DEPENDENCIES:
+  - ActiveLabel
+  - Alamofire
+  - MBProgressHUD (~> 1.2.0)
+  - ObjectMapper (~> 3.5)
+  - SwiftHEXColors
+
+SPEC REPOS:
+  trunk:
+    - ActiveLabel
+    - Alamofire
+    - MBProgressHUD
+    - ObjectMapper
+    - SwiftHEXColors
+
+SPEC CHECKSUMS:
+  ActiveLabel: 5e3f4de79a1952d4604b845a0610d4776e4b82b3
+  Alamofire: 0123a34370cb170936ae79a8df46cc62b2edeb88
+  MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
+  ObjectMapper: 97111c97e054a6ee25917662106689f0b4127b37
+  SwiftHEXColors: 1cb6e5d55c52749aa33db8f088ac55eb71ca4c7f
+
+PODFILE CHECKSUM: 1db6750ff3d09a8d6befad656954001936ec93db
 
 COCOAPODS: 1.12.1
