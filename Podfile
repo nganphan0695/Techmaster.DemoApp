@@ -6,5 +6,18 @@ target 'App.Demo.Techmaster' do
   use_frameworks!
 
   # Pods for App.Demo.Techmaster
+  pod 'ActiveLabel'
+  pod 'Alamofire'
+  pod 'SwiftHEXColors'
+  pod 'MBProgressHUD', '~> 1.2.0'
+  pod 'ObjectMapper', '~> 3.5'
 
+end
+
+post_install do |pi|
+  pi.pods_project.targets.each do |t|
+    t.build_configurations.each do |config|
+      config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '14.0'
+    end
+  end
 end
