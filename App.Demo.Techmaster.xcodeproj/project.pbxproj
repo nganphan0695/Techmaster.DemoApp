@@ -26,6 +26,8 @@
 		04AD11712A9464E000FAAB72 /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 04AD115E2A9464E000FAAB72 /* Poppins-Regular.ttf */; };
 		04AD11722A9464E000FAAB72 /* Poppins-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 04AD115F2A9464E000FAAB72 /* Poppins-ThinItalic.ttf */; };
 		04AD11732A9464E000FAAB72 /* Poppins-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 04AD11602A9464E000FAAB72 /* Poppins-BlackItalic.ttf */; };
+		04AD11762A946A5A00FAAB72 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AD11752A946A5A00FAAB72 /* RegisterViewController.swift */; };
+		04AD11792A946AC300FAAB72 /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AD11782A946AC300FAAB72 /* LoginResponse.swift */; };
 		04F3E3902A93CCFD003DC140 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F3E38F2A93CCFD003DC140 /* AppDelegate.swift */; };
 		04F3E3922A93CCFD003DC140 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F3E3912A93CCFD003DC140 /* SceneDelegate.swift */; };
 		04F3E3972A93CCFD003DC140 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04F3E3952A93CCFD003DC140 /* Main.storyboard */; };
@@ -56,6 +58,8 @@
 		04AD115E2A9464E000FAAB72 /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Regular.ttf"; sourceTree = "<group>"; };
 		04AD115F2A9464E000FAAB72 /* Poppins-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-ThinItalic.ttf"; sourceTree = "<group>"; };
 		04AD11602A9464E000FAAB72 /* Poppins-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-BlackItalic.ttf"; sourceTree = "<group>"; };
+		04AD11752A946A5A00FAAB72 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		04AD11782A946AC300FAAB72 /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
 		04F3E38C2A93CCFD003DC140 /* App.Demo.Techmaster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = App.Demo.Techmaster.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04F3E38F2A93CCFD003DC140 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04F3E3912A93CCFD003DC140 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -106,6 +110,22 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		04AD11742A946A3E00FAAB72 /* Register */ = {
+			isa = PBXGroup;
+			children = (
+				04AD11752A946A5A00FAAB72 /* RegisterViewController.swift */,
+			);
+			path = Register;
+			sourceTree = "<group>";
+		};
+		04AD11772A946AAF00FAAB72 /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				04AD11782A946AC300FAAB72 /* LoginResponse.swift */,
+			);
+			path = Response;
+			sourceTree = "<group>";
+		};
 		04F3E3832A93CCFD003DC140 = {
 			isa = PBXGroup;
 			children = (
@@ -129,6 +149,7 @@
 			children = (
 				04AD114D2A9464B200FAAB72 /* Fonts */,
 				04F3E3A32A93CF97003DC140 /* Screen */,
+				04AD11772A946AAF00FAAB72 /* Response */,
 				04F3E38F2A93CCFD003DC140 /* AppDelegate.swift */,
 				04F3E3912A93CCFD003DC140 /* SceneDelegate.swift */,
 				04F3E3952A93CCFD003DC140 /* Main.storyboard */,
@@ -142,6 +163,7 @@
 		04F3E3A32A93CF97003DC140 /* Screen */ = {
 			isa = PBXGroup;
 			children = (
+				04AD11742A946A3E00FAAB72 /* Register */,
 				04F3E3A42A93CFAD003DC140 /* Login */,
 			);
 			path = Screen;
@@ -291,6 +313,8 @@
 				04F3E3A62A93CFC3003DC140 /* LoginViewController.swift in Sources */,
 				04F3E3902A93CCFD003DC140 /* AppDelegate.swift in Sources */,
 				04F3E3922A93CCFD003DC140 /* SceneDelegate.swift in Sources */,
+				04AD11762A946A5A00FAAB72 /* RegisterViewController.swift in Sources */,
+				04AD11792A946AC300FAAB72 /* LoginResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
