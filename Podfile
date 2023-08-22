@@ -2,6 +2,7 @@
 # platform :ios, '9.0'
 
 target 'App.Demo.Techmaster' do
+  platform :ios, '10.0'
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 
