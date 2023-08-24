@@ -25,6 +25,9 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var passwordText: UITextField!
     @IBOutlet weak var clearPassImage: UIImageView!
     @IBOutlet weak var clearPassView: UIView!
+    
+    var bienNhanDL: String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -39,11 +42,28 @@ class LoginViewController: UIViewController {
         
         passwordText.isSecureTextEntry = true
         
+        emailText.autocorrectionType = .no
+        passwordText.autocorrectionType = .no
+        
         setupEmailView()
         setupPasswordView()
         
         signUpLabelSetup()
+        
+//        navigationController?.setNavigationBarHidden(true, animated: true)
+        
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
+    
     
     func setupEmailView(){
         emailText.backgroundColor = .white
@@ -90,7 +110,6 @@ class LoginViewController: UIViewController {
     }
     @IBAction func clearPassword(_ sender: Any) {
         passwordText.isSecureTextEntry = !passwordText.isSecureTextEntry
-        setupPasswordView()
     }
     
     @IBAction func loginButton(_ sender: Any) {
@@ -104,6 +123,9 @@ class LoginViewController: UIViewController {
             emailError(textError: "Email can't empty")
         }else if email.count >= 40 {
             emailError(textError: "Email phải ít hơn 40 ký tự")
+            clearEmailView.isHidden = false
+        }else if isValidEmail(email) == false{
+            emailError(textError: "Email không đúng định dạng")
             clearEmailView.isHidden = false
         }else{
             emailValid = true
@@ -125,6 +147,12 @@ class LoginViewController: UIViewController {
         
     }
     
+    func isValidEmail(_ email: String) -> Bool {
+        let emailRegEx = "^[\\w\\.-]+@([\\w\\-]+\\.)+[A-Z]{1,4}$"
+        let emailTest = NSPredicate(format:"SELF MATCHES[c] %@", emailRegEx)
+        return emailTest.evaluate(with: email)
+    }
+    
     func signUpLabelSetup(){
         let customType = ActiveType.custom(pattern: "\\sSign Up\\b")
         signUpLabel.enabledTypes = [customType]
@@ -132,7 +160,14 @@ class LoginViewController: UIViewController {
         signUpLabel.customColor[customType] = UIColor.blue
 
         signUpLabel.handleCustomTap(for: customType) { element in
-            print("Custom type tapped: \(element)")
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+
+            let registerViewController: UIViewController = storyboard.instantiateViewController(withIdentifier: "RegisterViewController") as! RegisterViewController
+            
+
+            self.navigationController?.pushViewController(registerViewController, animated: true)
+            
+//            self.pushRegisterViewController()
         }
 
         signUpLabel.configureLinkAttribute = { (type, attributes, isSelected) in
@@ -141,6 +176,14 @@ class LoginViewController: UIViewController {
             return atts
         }
     }
+    
+    //    func pushRegisterViewController(){
+//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//
+//        let registerViewController: UIViewController = storyboard.instantiateViewController(withIdentifier: "RegisterViewController") as! RegisterViewController
+//
+//        navigationController?.pushViewController(registerViewController, animated: true)
+//    }
     
     func callAPI(){
         self.showLoading(isShow: true)
@@ -230,6 +273,35 @@ class LoginViewController: UIViewController {
         } else {
             MBProgressHUD.hide(for: self.view, animated: true)
         }
+    }
+    
+    @IBAction func forgotPassword(_ sender: Any) {
+        let email: String = emailText.text ?? ""
+        
+        if email.isEmpty{
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+
+            let inputVC: UIViewController = storyboard.instantiateViewController(withIdentifier: "ForgotPasswordInputEmailViewController") as! ForgotPasswordInputEmailViewController
+
+
+            self.navigationController?.pushViewController(inputVC, animated: true)
+        }else if email.count >= 40 {
+            emailError(textError: "Email phải ít hơn 40 ký tự")
+            clearEmailView.isHidden = false
+        }else if isValidEmail(email) == false{
+            emailError(textError: "Email không đúng định dạng")
+            clearEmailView.isHidden = false
+        }else{
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+
+            let forgotPasswordChooseMethotViewController: ForgotPasswordChooseMethotViewController = storyboard.instantiateViewController(withIdentifier: "ForgotPasswordChooseMethotViewController") as! ForgotPasswordChooseMethotViewController
+            forgotPasswordChooseMethotViewController.mail = emailText.text
+
+            self.navigationController?.pushViewController(forgotPasswordChooseMethotViewController, animated: true)
+        }
+
+      
+       
     }
    
 }

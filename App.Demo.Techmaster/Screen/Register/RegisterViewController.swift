@@ -33,6 +33,8 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var passwordText: UITextField!
     @IBOutlet weak var clearPassView: UIView!
     
+    var bienNhanDLTuLogin: String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -59,6 +61,8 @@ class RegisterViewController: UIViewController {
         setupNameView()
         
         loginLabelSetup()
+        
+        
     }
     
     func setupEmailView(){
@@ -139,7 +143,6 @@ class RegisterViewController: UIViewController {
     }
     @IBAction func clearPassword(_ sender: Any) {
         passwordText.isSecureTextEntry = !passwordText.isSecureTextEntry
-        setupPasswordView()
     }
     
     @IBAction func registerButton(_ sender: Any) {
@@ -166,6 +169,9 @@ class RegisterViewController: UIViewController {
         }else if email.count >= 40 {
             emailError(textError: "Email phải ít hơn 40 ký tự")
             clearEmailView.isHidden = false
+        }else if isValidEmail(email) == false{
+            emailError(textError: "Email không đúng định dạng")
+            clearEmailView.isHidden = false
         }else{
             emailValid = true
             setupEmailView()
@@ -186,6 +192,12 @@ class RegisterViewController: UIViewController {
         
     }
     
+    func isValidEmail(_ email: String) -> Bool {
+        let emailRegex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+        let emailTest = NSPredicate(format: "`SELF MATCHES %@", emailRegex)
+        return emailTest.evaluate(with: email)
+    }
+    
     func loginLabelSetup(){
         let customType = ActiveType.custom(pattern: "\\sLogin\\b")
         loginLabel.enabledTypes = [customType]
@@ -194,6 +206,8 @@ class RegisterViewController: UIViewController {
         
         loginLabel.handleCustomTap(for: customType) { element in
             print("Custom type tapped: \(element)")
+            
+            self.navigationController?.popViewController(animated: true)
         }
         
         loginLabel.configureLinkAttribute = { (type, attributes, isSelected) in
@@ -419,6 +433,16 @@ class RegisterViewController: UIViewController {
         } else {
             MBProgressHUD.hide(for: self.view, animated: true)
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: animated)
     }
 }
 

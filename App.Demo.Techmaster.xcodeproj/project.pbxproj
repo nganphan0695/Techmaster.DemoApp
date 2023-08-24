@@ -28,6 +28,11 @@
 		04AD11732A9464E000FAAB72 /* Poppins-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 04AD11602A9464E000FAAB72 /* Poppins-BlackItalic.ttf */; };
 		04AD11762A946A5A00FAAB72 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AD11752A946A5A00FAAB72 /* RegisterViewController.swift */; };
 		04AD11792A946AC300FAAB72 /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AD11782A946AC300FAAB72 /* LoginResponse.swift */; };
+		04AD119C2A94E17100FAAB72 /* ForgotPasswordInputEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AD119B2A94E17100FAAB72 /* ForgotPasswordInputEmailViewController.swift */; };
+		04AD119E2A94E1A100FAAB72 /* ForgotPasswordChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AD119D2A94E1A100FAAB72 /* ForgotPasswordChangePasswordViewController.swift */; };
+		04AD11A02A94E1DA00FAAB72 /* ForgotPasswordChooseMethotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AD119F2A94E1DA00FAAB72 /* ForgotPasswordChooseMethotViewController.swift */; };
+		04AD11A22A94E2D900FAAB72 /* ForgotPasswordVerifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AD11A12A94E2D900FAAB72 /* ForgotPasswordVerifyViewController.swift */; };
+		04AD11A42A971F9C00FAAB72 /* ForgotPasswordResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AD11A32A971F9C00FAAB72 /* ForgotPasswordResponse.swift */; };
 		04F3E3902A93CCFD003DC140 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F3E38F2A93CCFD003DC140 /* AppDelegate.swift */; };
 		04F3E3922A93CCFD003DC140 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F3E3912A93CCFD003DC140 /* SceneDelegate.swift */; };
 		04F3E3972A93CCFD003DC140 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04F3E3952A93CCFD003DC140 /* Main.storyboard */; };
@@ -60,6 +65,11 @@
 		04AD11602A9464E000FAAB72 /* Poppins-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-BlackItalic.ttf"; sourceTree = "<group>"; };
 		04AD11752A946A5A00FAAB72 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		04AD11782A946AC300FAAB72 /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
+		04AD119B2A94E17100FAAB72 /* ForgotPasswordInputEmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordInputEmailViewController.swift; sourceTree = "<group>"; };
+		04AD119D2A94E1A100FAAB72 /* ForgotPasswordChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordChangePasswordViewController.swift; sourceTree = "<group>"; };
+		04AD119F2A94E1DA00FAAB72 /* ForgotPasswordChooseMethotViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordChooseMethotViewController.swift; sourceTree = "<group>"; };
+		04AD11A12A94E2D900FAAB72 /* ForgotPasswordVerifyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordVerifyViewController.swift; sourceTree = "<group>"; };
+		04AD11A32A971F9C00FAAB72 /* ForgotPasswordResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordResponse.swift; sourceTree = "<group>"; };
 		04F3E38C2A93CCFD003DC140 /* App.Demo.Techmaster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = App.Demo.Techmaster.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04F3E38F2A93CCFD003DC140 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04F3E3912A93CCFD003DC140 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -122,8 +132,20 @@
 			isa = PBXGroup;
 			children = (
 				04AD11782A946AC300FAAB72 /* LoginResponse.swift */,
+				04AD11A32A971F9C00FAAB72 /* ForgotPasswordResponse.swift */,
 			);
 			path = Response;
+			sourceTree = "<group>";
+		};
+		04AD119A2A94DE4D00FAAB72 /* ForgotPassword */ = {
+			isa = PBXGroup;
+			children = (
+				04AD119F2A94E1DA00FAAB72 /* ForgotPasswordChooseMethotViewController.swift */,
+				04AD119B2A94E17100FAAB72 /* ForgotPasswordInputEmailViewController.swift */,
+				04AD11A12A94E2D900FAAB72 /* ForgotPasswordVerifyViewController.swift */,
+				04AD119D2A94E1A100FAAB72 /* ForgotPasswordChangePasswordViewController.swift */,
+			);
+			path = ForgotPassword;
 			sourceTree = "<group>";
 		};
 		04F3E3832A93CCFD003DC140 = {
@@ -163,6 +185,7 @@
 		04F3E3A32A93CF97003DC140 /* Screen */ = {
 			isa = PBXGroup;
 			children = (
+				04AD119A2A94DE4D00FAAB72 /* ForgotPassword */,
 				04AD11742A946A3E00FAAB72 /* Register */,
 				04F3E3A42A93CFAD003DC140 /* Login */,
 			);
@@ -328,10 +351,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04AD11A22A94E2D900FAAB72 /* ForgotPasswordVerifyViewController.swift in Sources */,
+				04AD119C2A94E17100FAAB72 /* ForgotPasswordInputEmailViewController.swift in Sources */,
 				04F3E3A62A93CFC3003DC140 /* LoginViewController.swift in Sources */,
+				04AD119E2A94E1A100FAAB72 /* ForgotPasswordChangePasswordViewController.swift in Sources */,
+				04AD11A42A971F9C00FAAB72 /* ForgotPasswordResponse.swift in Sources */,
 				04F3E3902A93CCFD003DC140 /* AppDelegate.swift in Sources */,
 				04F3E3922A93CCFD003DC140 /* SceneDelegate.swift in Sources */,
 				04AD11762A946A5A00FAAB72 /* RegisterViewController.swift in Sources */,
+				04AD11A02A94E1DA00FAAB72 /* ForgotPasswordChooseMethotViewController.swift in Sources */,
 				04AD11792A946AC300FAAB72 /* LoginResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
