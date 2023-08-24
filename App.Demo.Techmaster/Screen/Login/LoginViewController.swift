@@ -49,20 +49,29 @@ class LoginViewController: UIViewController {
         setupPasswordView()
         
         signUpLabelSetup()
+        //ẩn navigation
+        navigationController?.setNavigationBarHidden(true, animated: true)
         
-//        navigationController?.setNavigationBarHidden(true, animated: true)
+        //add thêm button "Add" trên góc bên phải
+//        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add", style: .plain, target: self, action: #selector(addTapped))
         
+        //để title
+//        title = "Login"
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.setNavigationBarHidden(true, animated: animated)
-    }
-
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        navigationController?.setNavigationBarHidden(false, animated: animated)
-    }
+//    @objc func addTapped(){
+//    }
+    
+    //cách 2:ẩn navigation
+//    override func viewWillAppear(_ animated: Bool) {
+//        super.viewWillAppear(animated)
+//        navigationController?.setNavigationBarHidden(true, animated: animated)
+//    }
+//
+//    override func viewWillDisappear(_ animated: Bool) {
+//        super.viewWillDisappear(animated)
+//        navigationController?.setNavigationBarHidden(false, animated: animated)
+//    }
     
     
     func setupEmailView(){
@@ -161,13 +170,10 @@ class LoginViewController: UIViewController {
 
         signUpLabel.handleCustomTap(for: customType) { element in
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
-
             let registerViewController: UIViewController = storyboard.instantiateViewController(withIdentifier: "RegisterViewController") as! RegisterViewController
-            
-
             self.navigationController?.pushViewController(registerViewController, animated: true)
-            
-//            self.pushRegisterViewController()
+            //cách chuyển màn 2
+//            presendRegisterViewController()
         }
 
         signUpLabel.configureLinkAttribute = { (type, attributes, isSelected) in
@@ -177,12 +183,11 @@ class LoginViewController: UIViewController {
         }
     }
     
-    //    func pushRegisterViewController(){
+//        func presendRegisterViewController(){
 //        let storyboard = UIStoryboard(name: "Main", bundle: nil)
 //
 //        let registerViewController: UIViewController = storyboard.instantiateViewController(withIdentifier: "RegisterViewController") as! RegisterViewController
-//
-//        navigationController?.pushViewController(registerViewController, animated: true)
+//            present(registerViewController, animated: true)
 //    }
     
     func callAPI(){

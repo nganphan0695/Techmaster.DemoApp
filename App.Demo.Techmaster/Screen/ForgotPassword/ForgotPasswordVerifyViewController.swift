@@ -45,14 +45,15 @@ class ForgotPasswordVerifyViewController: UIViewController {
         if let email = email_Mobile{
             email_MobileLabel.text = "Enter the OTP sent to \(email)"
         }
-        
+       
         setupOTPView()
         
         resendButton.isHidden = true
-        callAPI()
         
+        navigationController?.setNavigationBarHidden(true, animated: true)
+        //sửa ảnh của nút back navigation
 //       backButton()
-        
+        callAPI()
     }
     
 //    func backButton(){
@@ -71,17 +72,6 @@ class ForgotPasswordVerifyViewController: UIViewController {
 //    @objc func didClickBack(_ sender: UIBarButtonItem){
 //        self.navigationController?.popViewController(animated: true)
 //    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.setNavigationBarHidden(true, animated: animated)
-    }
-
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        navigationController?.setNavigationBarHidden(false, animated: animated)
-    }
-    
     func setupOTPView(){
         otp1.backgroundColor = .white
         otp2.backgroundColor = .white
@@ -128,10 +118,28 @@ class ForgotPasswordVerifyViewController: UIViewController {
     }
     
     @IBAction func handleNext(_ sender: Any) {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let otp_1 = otp1.text ?? ""
+        let otp_2 = otp2.text ?? ""
+        let otp_3 = otp3.text ?? ""
+        let otp_4 = otp4.text ?? ""
+        let otp_5 = otp5.text ?? ""
+        let otp_6 = otp6.text ?? ""
+        let arrayOTP: [String] = [otp_1, otp_2, otp_3, otp_4, otp_5, otp_6]
+        
+        if otp_1.isEmpty || otp_2.isEmpty || otp_3.isEmpty || otp_4.isEmpty || otp_5.isEmpty || otp_6.isEmpty{
+            checkOTP()
+            otpError()
+        }else{
+            setupOTPView()
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
 
-        let forgotPasswordChangePasswordViewController: UIViewController = storyboard.instantiateViewController(withIdentifier: "ForgotPasswordChangePasswordViewController") as! ForgotPasswordChangePasswordViewController
-        self.navigationController?.pushViewController(forgotPasswordChangePasswordViewController, animated: true)
+            let forgotPasswordChangePasswordViewController: ForgotPasswordChangePasswordViewController = storyboard.instantiateViewController(withIdentifier: "ForgotPasswordChangePasswordViewController") as! ForgotPasswordChangePasswordViewController
+            
+            forgotPasswordChangePasswordViewController.email = email_Mobile
+            forgotPasswordChangePasswordViewController.otp = arrayOTP.joined()
+            
+            self.navigationController?.pushViewController(forgotPasswordChangePasswordViewController, animated: true)
+        }
     }
     
     func startTimer(){
@@ -225,6 +233,13 @@ class ForgotPasswordVerifyViewController: UIViewController {
         } else {
             MBProgressHUD.hide(for: self.view, animated: true)
         }
+    }
+    
+    func checkOTP(){
+        let alertVC = UIAlertController(title: nil, message: "Hãy điền đủ OTP", preferredStyle: .alert)
+        let cancel = UIAlertAction(title: "OK", style: .cancel)
+        alertVC.addAction(cancel)
+        present(alertVC, animated: true)
     }
 
 }

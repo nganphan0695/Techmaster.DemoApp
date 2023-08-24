@@ -33,8 +33,6 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var passwordText: UITextField!
     @IBOutlet weak var clearPassView: UIView!
     
-    var bienNhanDLTuLogin: String?
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -62,7 +60,7 @@ class RegisterViewController: UIViewController {
         
         loginLabelSetup()
         
-        
+        navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
     func setupEmailView(){
@@ -433,16 +431,6 @@ class RegisterViewController: UIViewController {
         } else {
             MBProgressHUD.hide(for: self.view, animated: true)
         }
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.setNavigationBarHidden(true, animated: animated)
-    }
-
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        navigationController?.setNavigationBarHidden(false, animated: animated)
     }
 }
 

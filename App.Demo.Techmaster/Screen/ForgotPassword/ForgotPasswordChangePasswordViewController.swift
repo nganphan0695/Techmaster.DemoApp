@@ -23,6 +23,7 @@ class ForgotPasswordChangePasswordViewController: UIViewController {
         super.viewDidLoad()
         passwordText.autocorrectionType = .no
         confirmText.autocorrectionType = .no
+        navigationController?.setNavigationBarHidden(true, animated: true)
 
         setupNewPasswordView()
         setupConfirmPasswordView()
@@ -69,13 +70,13 @@ class ForgotPasswordChangePasswordViewController: UIViewController {
         let parameter:[String: String] = [
             "email": email ?? "",
             "pin_code": otp ?? "",
-            "new_password": "1234567890"
+            "new_password": passwordText.text ?? ""
         ]
         AF.request(domain,
                    method: .post,
                    parameters: parameter,
                    encoder: JSONParameterEncoder.default).validate(statusCode: 200..<299)
-            .responseDecodable(of: ChangePasswordResponse.self, completionHandler: { afDataResponse in
+            .responseDecodable(of: ForgotPasswordResponse.self, completionHandler: { afDataResponse in
                 self.showLoading(isShow: false)
                 switch afDataResponse.result{
                 case .success(let changePasswordResponse):
@@ -159,16 +160,6 @@ class ForgotPasswordChangePasswordViewController: UIViewController {
         confirmText.isSecureTextEntry = !confirmText.isSecureTextEntry
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.setNavigationBarHidden(true, animated: animated)
-    }
-
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        navigationController?.setNavigationBarHidden(false, animated: animated)
-    }
-
     func changePasswordSuccess(){
         let alertVC = UIAlertController(title: nil, message: "Đổi mật khẩu thành công", preferredStyle: .alert)
         let cancel = UIAlertAction(title: "OK", style: .cancel)

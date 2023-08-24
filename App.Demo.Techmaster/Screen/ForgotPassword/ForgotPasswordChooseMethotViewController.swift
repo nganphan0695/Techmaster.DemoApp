@@ -1,7 +1,4 @@
-//Định dạng mobile
-//callAPI k có code để check
-//resendCode textField
-//kiểu trả về changepass
+
 import UIKit
 
 class ForgotPasswordChooseMethotViewController: UIViewController {
@@ -15,6 +12,7 @@ class ForgotPasswordChooseMethotViewController: UIViewController {
         super.viewDidLoad()
         email.text = mail
         setImage()
+        navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
 
@@ -36,7 +34,6 @@ class ForgotPasswordChooseMethotViewController: UIViewController {
             
             let inputVC: UIViewController = storyboard.instantiateViewController(withIdentifier: "ForgotPasswordInputEmailViewController") as! ForgotPasswordInputEmailViewController
             
-            
             self.navigationController?.pushViewController(inputVC, animated: true)
         }
         
@@ -53,15 +50,5 @@ class ForgotPasswordChooseMethotViewController: UIViewController {
     @IBAction func radioButton(_ sender: Any) {
         self.isOn = !self.isOn
         self.setImage()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.setNavigationBarHidden(true, animated: animated)
-    }
-
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        navigationController?.setNavigationBarHidden(false, animated: animated)
     }
 }
