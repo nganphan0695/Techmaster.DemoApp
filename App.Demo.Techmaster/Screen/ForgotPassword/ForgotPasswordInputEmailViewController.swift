@@ -13,6 +13,8 @@ class ForgotPasswordInputEmailViewController: UIViewController {
         textFiled.layer.borderWidth = 1
         textFiled.layer.borderColor = UIColor(hexString: "#4E4B66")?.cgColor
         textFiled.autocorrectionType = .no
+        
+        navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
 
@@ -63,16 +65,6 @@ class ForgotPasswordInputEmailViewController: UIViewController {
         let cancel = UIAlertAction(title: "OK", style: .cancel)
         alertVC.addAction(cancel)
         present(alertVC, animated: true)
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.setNavigationBarHidden(true, animated: animated)
-    }
-
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        navigationController?.setNavigationBarHidden(false, animated: animated)
     }
 
 }
